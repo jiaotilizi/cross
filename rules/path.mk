@@ -1,0 +1,37 @@
+#工程目录
+export PROJECT_PATH := $(ROOT_PATH)
+#编译完成后，需要安装编译结果的目录， 模块MakeFile将编译结果拷贝到对应的目录
+export INSTALL_BASE_PATH := $(PROJECT_PATH)
+export INSTALL_PREFIX_PATH := $(INSTALL_BASE_PATH)/prefix/$(ARCH)
+#可执行程序安装目录
+export INSTALL_EXE_PATH := $(INSTALL_BASE_PATH)/bin/$(ARCH)
+#二进制安装目录
+export INSTALL_BIN_PATH := $(INSTALL_BASE_PATH)/bin/$(ARCH)
+#动态库安装目录
+export INSTALL_SHARED_LIB_PATH := $(INSTALL_BASE_PATH)/lib/$(ARCH)
+#静态库安装目录
+export INSTALL_STATIC_LIB_PATH := $(INSTALL_BASE_PATH)/lib/$(ARCH)
+#ko文件安装目录
+export INSTALL_KERNEL_OBJECT_PATH := $(INSTALL_BASE_PATH)/lib/$(ARCH)
+#头文件安装目录
+export INSTALL_HEAD_FILE_PATH := $(INSTALL_BASE_PATH)/include
+
+export DEPEND_BASE_PATH := $(PROJECT_PATH)
+#编译依赖的动态库目录
+export DEPEND_SHARED_LIB_PATH := $(DEPEND_BASE_PATH)/lib/$(ARCH)
+#编译依赖的静态库目录
+export DEPEND_STATIC_LIB_PATH := $(DEPEND_BASE_PATH)/lib/$(ARCH)
+#编译依赖的头文件目录
+export DEPEND_HEAD_FILE_PATH := $(DEPEND_BASE_PATH)/include
+
+#编译目录
+export BUILD_BASE_PATH := $(PROJECT_PATH)/build/$(ARCH)
+
+#prepare目录
+export INSTALL_ALL_PATH := $(INSTALL_EXE_PATH) $(INSTALL_BIN_PATH)
+INSTALL_ALL_PATH += $(INSTALL_SHARED_LIB_PATH) $(INSTALL_STATIC_LIB_PATH)
+INSTALL_ALL_PATH += $(BUILD_BASE_PATH)
+INSTALL_ALL_PATH += $(INSTALL_HEAD_FILE_PATH)
+
+#opensource目录
+export OPEN_SOURCE_PATH := $(ROOT_PATH)/opensource

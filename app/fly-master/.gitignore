@@ -1,0 +1,5 @@
+.scons*
+build
+*.o
+*.obj
+cscope.*
